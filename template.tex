@@ -1,0 +1,167 @@
+\documentclass[9pt]{beamer}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\setlength\belowcaptionskip{-2pt}
+% defining some nice colours
+\renewcommand{\bibsection}{\subsubsection*{\bibname}}
+\def\mathfamilydefault{cmss}
+\usetheme[progressbar = frametitle,
+numbering = fraction]{metropolis}
+\definecolor{cblue}{RGB}{0,113,144}
+\definecolor{Arsenic}{RGB}{26, 41, 44}
+\setbeamercolor{frametitle}{bg = white, fg = Arsenic}
+\setbeamercolor{alerted text}{fg = cblue}
+\setbeamercolor{background canvas}{bg = white}
+\hypersetup{colorlinks,
+	citecolor = cblue,
+	filecolor = Arsenic,
+	linkcolor = Arsenic,
+	urlcolor = cblue}
+\setbeamercolor{progress bar}{fg = cblue}
+\setbeamercolor{block title}{bg = white}
+
+% for informal stuff, use these -->
+%\usetheme[progressbar = frametitle]{metropolis}
+%\definecolor{pinkish}{RGB}{230,65,115}
+%\definecolor{blueish}{RGB}{66,133,244}
+%\definecolor{greyish}{RGB}{248,248,248}
+%\definecolor{purpleish}{RGB}{106, 90, 205}
+%\definecolor{orangeish}{RGB}{255,159,70}
+%\definecolor{maroonish}{RGB}{206,31,106}
+%\setbeamercolor{alerted text}{fg = pinkish}
+%\setbeamercolor{background canvas}{bg=white}
+%\hypersetup{colorlinks, citecolor = blueish,  filecolor = blueish, linkcolor = blueish, urlcolor=blueish}
+%\setbeamercolor{progress bar}{fg=pinkish}
+%\newcommand{\code}{\texttt}
+%\usepackage{caption}
+%\captionsetup[table]{belowskip=0pt,aboveskip=0pt}
+
+
+
+
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\makeatletter
+\setbeamertemplate{title page}{
+	\begin{minipage}[b][\paperheight]{\textwidth}
+		\centering  % <-- Center here
+		\vfill%
+		\ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+		\ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+		\usebeamertemplate*{title separator}
+		\ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+		\ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+		\ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+		\vfill
+		\vspace*{1mm}
+\end{minipage}}
+
+\setbeamertemplate{title}{
+	\linespread{1.0}%
+	\inserttitle%
+	\par%
+	\vspace*{0.5em}}
+\setbeamertemplate{subtitle}{
+	\insertsubtitle%
+	\par%
+	\vspace*{0.5em}}
+\makeatother
+\makeatother
+
+
+
+% start from here --->
+
+\title{\alert{\textbf{My title here}}}
+\subtitle{Sub-title}
+\date{}
+\author{Zaeen}
+\institute{Azim Premji University}
+
+
+
+\begin{document}
+	\maketitle
+
+	% if you need an outline/index/something of that - comment/delete if not needed
+	\begin{frame}{Outline}
+		\small
+		\setbeamertemplate{section in toc}[sections numbered]
+		\tableofcontents[hideallsubsections]
+	\end{frame}
+
+	% delete/comment out section titles if not needed
+	\section[Section 1]{Section 1 Heading}
+
+
+
+	\begin{frame}[Section 1]{Section 1 Heading}
+		Something something something
+	\end{frame}
+
+	\section[Section 2]{Section 2 Heading}
+
+	\begin{frame}[Section 2]{Section 2}
+		\small
+		\alert{\textbf{Something bold}}
+		\begin{itemize}
+			\item[] \textbf{Main point 1} \\
+			something something
+			\begin{itemize}
+				\item[-] Point 1
+				\item[-] Point 2
+			\end{itemize}
+		\end{itemize}
+		\alert{\textbf{Something bold}}
+		\begin{itemize}
+			\item[] \textbf{Main point 2} \\
+			something something
+			\begin{itemize}
+				\item[-] Point 1
+				\item[-] Point 2
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+
+
+	\section[Math]{Math}
+	\begin{frame}[Math]{This is some random math}
+		\begin{equation}
+			\frac{1}{n} \sum_{i=i}^{n} x_{i} \geq
+			\left(\prod _{i=1}^{n}x_{i}\right)^{\frac {1}{n}}
+		\end{equation}
+	\end{frame}
+
+
+
+	\section[Tables]{Tables}
+
+
+	{ % invert fg and bg if you want blue on white
+		\setbeamercolor{palette primary}{bg = niceblue, fg = white}
+		\begin{frame}[standout]
+			Thank you - questions? \\
+		\end{frame}
+	}
+
+
+	% anything after \appendix will not be included in slide numbers
+
+	\appendix
+
+	{
+		\setbeamercolor{palette primary}{fg = niceblue, bg = white}
+		\begin{frame}[standout]{}
+			Extra Slides \& Appendix
+		\end{frame}
+	}
+
+
+	%\subsection[References]{References}
+
+
+
+
+\end{document}
