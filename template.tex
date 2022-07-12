@@ -1,50 +1,37 @@
-\documentclass[aspectratio=169, 11pt]{beamer}
+% General Notes %
+% 1. User needs to first install fonts in folder
+% 2. Then go to Options -> Configure -> Build -> Compile with Xelatex
+% 3. Compile after installing all packages needed. Will give errors in first try. Just compile again.
+
+% Slide settings, packages and link options.
+\documentclass[11pt, aspectratio=169]{beamer} % remove aspectratio line for standard beamer size (square slides)
 \usepackage{appendixnumberbeamer}
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \setlength\belowcaptionskip{-2pt}
-% defining some nice colours
-\renewcommand{\bibsection}{\subsubsection*{\bibname}}
-\def\mathfamilydefault{cmss}
 \usetheme[progressbar = frametitle,
 numbering = fraction]{metropolis}
-\definecolor{cblue}{RGB}{0,113,144}
+
+% Colours and Links: Setup
+\definecolor{cseblue}{RGB}{22,146,109}
 \definecolor{Arsenic}{RGB}{26, 41, 44}
 \setbeamercolor{frametitle}{bg = white, fg = Arsenic}
-\setbeamercolor{alerted text}{fg = cblue}
+\setbeamercolor{alerted text}{fg = cseblue}
 \setbeamercolor{background canvas}{bg = white}
 \hypersetup{colorlinks,
-	citecolor = cblue,
+	citecolor = cseblue,
 	filecolor = Arsenic,
 	linkcolor = Arsenic,
-	urlcolor = cblue}
-\setbeamercolor{progress bar}{fg = cblue}
+	urlcolor = cseblue}
+\setbeamercolor{progress bar}{fg = cseblue}
 \setbeamercolor{block title}{bg = white}
-
-% for informal stuff, use these -->
-%\usetheme[progressbar = frametitle]{metropolis}
-%\definecolor{pinkish}{RGB}{230,65,115}
-%\definecolor{blueish}{RGB}{66,133,244}
-%\definecolor{greyish}{RGB}{248,248,248}
-%\definecolor{purpleish}{RGB}{106, 90, 205}
-%\definecolor{orangeish}{RGB}{255,159,70}
-%\definecolor{maroonish}{RGB}{206,31,106}
-%\setbeamercolor{alerted text}{fg = pinkish}
-%\setbeamercolor{background canvas}{bg=white}
-%\hypersetup{colorlinks, citecolor = blueish,  filecolor = blueish, linkcolor = blueish, urlcolor=blueish}
-%\setbeamercolor{progress bar}{fg=pinkish}
-%\newcommand{\code}{\texttt}
-%\usepackage{caption}
-%\captionsetup[table]{belowskip=0pt,aboveskip=0pt}
-
-
-
-
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+% Formatting
 \makeatletter
 \setbeamertemplate{title page}{
 	\begin{minipage}[b][\paperheight]{\textwidth}
-		\centering  % <-- Center here
+		\centering
 		\vfill%
 		\ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
 		\ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
@@ -52,9 +39,21 @@ numbering = fraction]{metropolis}
 		\ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
 		\ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
 		\ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
-		\vfill
-		\vspace*{1mm}
+		\vfill%
+		\ifx\inserttitlegraphic\@empty\else\inserttitlegraphic\fi
+		%   <---------ADD MORE LOGOS HERE--------------->
+		% if you need an > 1 logo un-comment this line below, duplicate n times and then update link under author name section
+		%\hfill
+		%\ifx\inserttitlegraphic\@empty\else\inserttitlegraphic\fi
+		\vspace*{5mm}
 \end{minipage}}
+
+% this controls the width of the progress bar. x > 1.1 will make it fat x < 1.1 will make it thin
+%\makeatletter
+%\setlength{\metropolis@titleseparator@linewidth}{1.1pt}
+%\setlength{\metropolis@progressonsectionpage@linewidth}{1.1pt}
+%\setlength{\metropolis@progressinheadfoot@linewidth}{1.1pt}
+%\makeatother
 
 \setbeamertemplate{title}{
 	\linespread{1.0}%
@@ -66,23 +65,23 @@ numbering = fraction]{metropolis}
 	\par%
 	\vspace*{0.5em}}
 \makeatother
-\makeatother
 
 
 
-% start from here --->
-
-\title{\alert{\textbf{My title here}}}
-\subtitle{Sub-title}
-\date{}
-\author{Zaeen}
+% User: start from here --->
+\title{\alert{\textbf{Can Public Preschools Level the Playing Field?}}}
+\subtitle{Evidence From Andhra Pradesh}
+\author{Zaeen de Souza}
 \institute{Azim Premji University}
+% User: update this link to photo below; replace \centering with \flushright or \flushleft to align left/right
+%\titlegraphic{\centering\includegraphics[height=1cm]{apu.png}}
+% un-comment below if you need to add > 1 logo
+\titlegraphic{\centering\includegraphics[height=1cm]{apu.png}}
 
 
 
 \begin{document}
-	\maketitle
-
+\maketitle%
 	% if you need an outline/index/something of that - comment/delete if not needed
 	\begin{frame}{Outline}
 		\small
@@ -90,19 +89,18 @@ numbering = fraction]{metropolis}
 		\tableofcontents[hideallsubsections]
 	\end{frame}
 
-	% delete/comment out section titles if not needed
-	\section[Section 1]{Section 1 Heading}
+% delete/comment out section titles if not needed
+\section{Section 1 Heading}
 
 
 
-	\begin{frame}[Section 1]{Section 1 Heading}
-		Something something something
-	\end{frame}
+\begin{frame}{Heading 1}
+Something something something
+\end{frame}
 
-	\section[Section 2]{Section 2 Heading}
+\section{Section 2 Heading}
 
-	\begin{frame}[Section 2]{Section 2}
-		\small
+\begin{frame}{Section 2}
 		\alert{\textbf{Something bold}}
 		\begin{itemize}
 			\item[] \textbf{Main point 1} \\
@@ -121,46 +119,36 @@ numbering = fraction]{metropolis}
 				\item[-] Point 2
 			\end{itemize}
 		\end{itemize}
+\end{frame}
+
+
+
+
+\section{Math}
+
+\begin{frame}{This is some random math}
+
+\begin{equation}
+\frac{1}{n} \sum_{i=i}^{n} x_{i} \geq
+\left(\prod _{i=1}^{n}x_{i}\right)^{\frac {1}{n}}
+\end{equation}
+
+\end{frame}
+
+
+
+% anything after \appendix will not be included in slide numbers
+
+\appendix
+
+{
+\setbeamercolor{palette primary}{bg = cseblue, fg = white}
+\begin{frame}[standout]{}
+		Extra Slides \& Appendix
 	\end{frame}
+}
 
-
-
-
-	\section[Math]{Math}
-	\begin{frame}[Math]{This is some random math}
-		\begin{equation}
-			\frac{1}{n} \sum_{i=i}^{n} x_{i} \geq
-			\left(\prod _{i=1}^{n}x_{i}\right)^{\frac {1}{n}}
-		\end{equation}
-	\end{frame}
-
-
-
-	\section[Tables]{Tables}
-
-
-	{ % invert fg and bg if you want blue on white
-		\setbeamercolor{palette primary}{fg = cblue, bg = white}
-		\begin{frame}[standout]
-			Thank you.\\
-			Questions/Comments? \\
-		\end{frame}
-	}
-
-
-	% anything after \appendix will not be included in slide numbers
-
-	\appendix
-
-	{
-		\setbeamercolor{palette primary}{fg = niceblue, bg = white}
-		\begin{frame}[standout]{}
-			Extra Slides \& Appendix
-		\end{frame}
-	}
-
-
-	%\subsection[References]{References}
+%\subsection[References]{References}
 
 
 
